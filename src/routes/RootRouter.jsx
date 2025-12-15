@@ -16,7 +16,7 @@ export const jiwonRouter = createBrowserRouter([
         element: <Initpage />,
       },
       {
-        path: ":mid", //동적 path처리
+        path: ":ban/:mid", //동적 path처리 , /402/4
         element: <Member />,
       },
     ],

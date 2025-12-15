@@ -1,10 +1,18 @@
 import { useContext } from "react";
 import { JiwonContext } from "../context/JiwonContext";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 function SideBar() {
   const [members, setMembers] = useContext(JiwonContext);
   console.log("체크 : ", members);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // 동적 url이동
+    navigate("/403/10/?hero=수민&weapon=내공");
+  };
+
   return (
     <div className="sidebar">
       <ul>
@@ -14,12 +22,15 @@ function SideBar() {
               style={({ isActive }) =>
                 isActive ? { color: "blue", fontWeight: "bolder" } : null
               }
-              to={`/${member.mid}`}
+              to={`/402/${member.mid}`}
             >
               {member.name}
             </NavLink>
           </li>
         ))}
+        <li>
+          <button onClick={handleClick}>지원버튼</button>
+        </li>
       </ul>
     </div>
   );
