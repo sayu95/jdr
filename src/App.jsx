@@ -1,15 +1,12 @@
-import { createBrowserRouter } from "react-router";
-import Headers from "./Headers";
-const rootRouter = createBrowserRouter([
-  {
-    path: "/",
-  },
-]);
+import JiwonConProvider from "./context/JiwonConProvider";
+import JiwonRouteProvider from "./routes/JiwonRouteProvider";
 
 function App() {
   return (
     <>
-      <Headers></Headers>
+      <JiwonConProvider>
+        <JiwonRouteProvider />
+      </JiwonConProvider>
     </>
   );
 }
